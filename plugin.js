@@ -1,5 +1,5 @@
 ﻿CKEDITOR.plugins.add( 'btquicktable', {
-	requires: 'table,panelbutton,floatpanel',
+	requires: 'bt_table,panelbutton,floatpanel',
 	lang: 'af,ar,bg,bn,bs,ca,cs,cy,da,de,el,en,en-au,en-ca,en-gb,eo,es,et,eu,fa,fi,fo,fr,fr-ca,gl,gu,he,hi,hr,hu,id,is,it,ja,ka,km,ko,ku,lt,lv,mk,mn,ms,nb,nl,no,pl,pt,pt-br,ro,ru,si,sk,sl,sq,sr,sr-latn,sv,th,tr,ug,uk,vi,zh,zh-cn', // %REMOVE_LINE_CORE%
 	afterInit: function( editor ) {
 		var conf = editor.config,
@@ -216,7 +216,7 @@
 					}
 
 					if ( row > quickRows - 1 || column > quickColumns - 1 ) {
-						editor.execCommand( 'table' );
+						editor.execCommand( 'bt_table' );
 					}
 					select( caption, table, row + 1, column + 1 );
 					evt.data.preventDefault();
@@ -238,7 +238,7 @@
 				moreButton.setText( editor.lang.btquicktable.more );
 				moreButton.setStyle( 'text-align', 'center' );
 				moreButton.on( 'click', function( evt ) {
-					editor.execCommand( 'table' );
+					editor.execCommand( 'bt_table' );
 					evt.data.preventDefault();
 				} );
 
