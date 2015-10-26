@@ -6,7 +6,11 @@ Its mean't to add Bootstrap 3 classes to quicktable.
 
 Dependencies: bt_table, panelbutton, floatpanel
 
-You may find bt_table from https://github.com/kaido24/bt_table 
+Download:
+
+bt_table from https://github.com/kaido24/bt_table
+
+panelbuttons: http://ckeditor.com/addon/panelbutton
 
 Demo: https://www.youtube.com/watch?v=ULDeTUs-xHE
 
