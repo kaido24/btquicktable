@@ -1,4 +1,4 @@
-# Bootstrap 3 Quick Table implementation
+# Bootstrap 3 Quick Table implementation for CKEditor 4
 
 This plugin is kind of copy paste from https://github.com/ufdada/quicktable with some additions and changes.
 
