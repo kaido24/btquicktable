@@ -2,6 +2,7 @@
 	requires: 'bt_table,panelbutton,floatpanel',
 	lang: 'af,ar,bg,bn,bs,ca,cs,cy,da,de,el,en,en-au,en-ca,en-gb,eo,es,et,eu,fa,fi,fo,fr,fr-ca,gl,gu,he,hi,hr,hu,id,is,it,ja,ka,km,ko,ku,lt,lv,mk,mn,ms,nb,nl,no,pl,pt,pt-br,ro,ru,si,sk,sl,sq,sr,sr-latn,sv,th,tr,ug,uk,vi,zh,zh-cn', // %REMOVE_LINE_CORE%
 	afterInit: function( editor ) {
+		var lang = editor.lang;
 		var conf = editor.config,
 			quickRows = conf.qtRows || 10,
 			quickColumns = conf.qtColumns || 8,
@@ -95,11 +96,11 @@
 			}
 			selection.row = rowCount - 1;
 			selection.column = columnCount - 1;
-			label.setText( rowCount + ' × ' + columnCount + ' ' + editor.lang.table.toolbar );
+			label.setText( rowCount + ' × ' + columnCount + ' ' + lang.table.toolbar );
 		}
     // Replace table dialog.
 		editor.ui.add( 'Table', CKEDITOR.UI_PANELBUTTON, {
-			label: editor.lang.table.toolbar,
+			label: lang.table.toolbar,
 			command: 'table',
 			modes: { wysiwyg: 1 },
 			editorFocus: 0,
@@ -113,7 +114,7 @@
 
 			panel: {
 				css: CKEDITOR.skin.getPath( 'editor' ),
-				attributes: { role: 'listbox', 'aria-label': editor.lang.table.toolbar }
+				attributes: { role: 'listbox', 'aria-label': lang.table.toolbar }
 			},
 			// Create panel ui.
 			onBlock: function( panel, block ) {
@@ -122,10 +123,10 @@
 
 				// Data object class: Checkbox name;
 				var btdata = {
-					'table-bordered': 'Borders',
-					'table-striped': 'Striped table',
-					'table-hover': 'Hover effect',
-					'table-condensed': 'Compact style',
+					'table-bordered': lang.bt_table.addBorders,
+					'table-striped': lang.bt_table.addStripes,
+					'table-hover': lang.bt_table.addHover,
+					'table-condensed': lang.bt_table.compactStyle,
 				};
 				panel.bootstrapdata = [];
 				for (item in btdata) {
@@ -158,7 +159,7 @@
 			},
 
 			assignKeys: function(keys){
-				var rtl = editor.lang.dir == 'rtl';
+				var rtl = lang.dir == 'rtl';
 				keys[ rtl ? 37 : 39 ] = 'next'; // ARROW-RIGHT
 				keys[ 40 ] = 'next'; // ARROW-DOWN
 				keys[ 9 ] = 'next'; // TAB
@@ -230,12 +231,12 @@
 				moreButton.setAttributes( {
 					_cke_focus: 1,
 					hidefocus: true,
-					title: editor.lang.btquicktable.more,
-					href: 'javascript:void("' + editor.lang.btquicktable.more + '")',
+					title: lang.btquicktable.more,
+					href: 'javascript:void("' + lang.btquicktable.more + '")',
 					role: 'option'
 				} );
 				moreButton.addClass( 'cke_colormore' );
-				moreButton.setText( editor.lang.btquicktable.more );
+				moreButton.setText( lang.btquicktable.more );
 				moreButton.setStyle( 'text-align', 'center' );
 				moreButton.on( 'click', function( evt ) {
 					editor.execCommand( 'bt_table' );
