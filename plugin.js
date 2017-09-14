@@ -9,6 +9,10 @@
 			quickStyle = conf.qtStyle || null,
 			quickClass = conf.qtClass || '',
 			quickWidth = conf.qtWidth || '100%',
+			quickStriped = conf.qtStripes || false,
+			quickBordered = conf.qtBordered || false,
+			quickHover = conf.qtHover || false,
+			quickCondensed = conf.qtCondensed || false,
 			quickPreviewSize = conf.qtPreviewSize || '14px',
 			quickPreviewBorder = conf.qtPreviewBorder || '1px solid #aaa',
 			quickPreviewBackground = conf.qtPreviewBackground || '#e5e5e5';
@@ -123,16 +127,19 @@
 
 				// Data object class: Checkbox name;
 				var btdata = {
-					'table-bordered': lang.bt_table.addBorders,
-					'table-striped': lang.bt_table.addStripes,
-					'table-hover': lang.bt_table.addHover,
-					'table-condensed': lang.bt_table.compactStyle,
+					'table-bordered': {label: lang.bt_table.addBorders, val: quickBordered},
+					'table-striped': {label: lang.bt_table.addStripes, val: quickStriped},
+					'table-hover': {label: lang.bt_table.addHover, val: quickHover},
+					'table-condensed': {label: lang.bt_table.compactStyle, val: quickCondensed},
 				};
 				panel.bootstrapdata = [];
 				for (item in btdata) {
+					panel.bootstrapdata[item] = btdata[item].val;
 					var	dialogElement = new CKEDITOR.dom.element.createFromHtml(
-						'<div><label><input type="checkbox" name="' + item + '">' + btdata[item]
-				 			+ '</label></div>');
+						'<div><label><input type="checkbox" name="' + item + '"'
+						    + ((btdata[item].val)?' checked="checked"':'')
+						    +'>' + btdata[item].label
+						    + '</label></div>');
 
 					dialogElement.find('input').$[0].onchange = function() {
 						return panel.bootstrapdata[this.name] = this.checked;

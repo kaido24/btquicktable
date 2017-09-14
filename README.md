@@ -14,6 +14,27 @@ panelbuttons: http://ckeditor.com/addon/panelbutton
 
 Demo: https://www.youtube.com/watch?v=ULDeTUs-xHE
 
+## Configuration
+
+You can configure the plugin using the following parameters:
+
+```javascript
+CKEDITOR.replace( 'myeditor', {
+   // ...
+   qtRows: 10,            // number of rows to show
+   qtColumns: 8,          // number of columns to show
+   qtStyle: '',           // extra style to apply 
+   qtWidth: '100%',
+   qtBordered: true,      // table is bordered by default      
+   qtStriped: true,       // table is striped by default
+   qtHover: true,         // table has hover effect by default
+   qtCondensed: true,     // table is condensed by default
+   qtPreviewSize: '14px',
+   qtPreviewBorder: '1px solid #aaa',
+   qtPreviewBackground: '#e5e5e5'   
+   // ...
+});
+```
 
 ##Other Bootstrap 3 software for CKEditor
 
